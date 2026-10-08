@@ -1,0 +1,578 @@
+/* =====================================================
+   COLORS
+   We save our colors in variables so we can reuse them.
+   Use them like this:  color: var(--primary);
+===================================================== */
+
+:root {
+    --primary: #4f46e5;        /* main purple */
+    --primary-light: #eef2ff;  /* very light purple */
+    --text: #1e293b;           /* dark text */
+    --gray: #64748b;           /* light text */
+    --border: #e2e8f0;         /* light border */
+    --background: #f1f5f9;     /* page background */
+    --red: #dc2626;
+    --green: #16a34a;
+}
+
+
+/* =====================================================
+   BASIC STYLES
+===================================================== */
+
+/* Padding and border are included in the width */
+* {
+    box-sizing: border-box;
+}
+
+/* Smooth scroll when clicking navbar links */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+p {
+    color: var(--gray);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav {
+    /* Stays at the top while scrolling */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    /* Logo on the left, links on the right */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 6%;
+    background-color: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-links a {
+    padding: 8px 14px;
+    border-radius: 20px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   HERO (top banner)
+===================================================== */
+
+header {
+    /* "relative" so the shapes inside can be placed with top/left */
+    position: relative;
+
+    /* Hide the parts of shapes that go outside */
+    overflow: hidden;
+
+    padding: 90px 20px 100px;
+    text-align: center;
+    color: white;
+
+    /* Colorful background that slowly moves */
+    background: linear-gradient(135deg, #4f46e5, #7c3aed, #db2777, #0ea5e9);
+    background-size: 400% 400%;
+    animation: moveGradient 20s ease-in-out infinite;
+}
+
+/* Text sits above the moving shapes */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-tag {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 56px;
+    animation: glow 6s ease-in-out infinite;
+}
+
+.hero-text {
+    max-width: 550px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    color: white;
+}
+
+
+/* ----- Blurry circles (orbs) ----- */
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+}
+
+.orb-1 {
+    width: 380px;
+    height: 380px;
+    top: -120px;
+    left: -80px;
+    background-color: #22d3ee;
+    animation: float 18s ease-in-out infinite;
+}
+
+.orb-2 {
+    width: 320px;
+    height: 320px;
+    bottom: -140px;
+    right: -60px;
+    background-color: #f472b6;
+    animation: float 22s ease-in-out infinite reverse;
+}
+
+.orb-3 {
+    width: 260px;
+    height: 260px;
+    top: 30%;
+    left: 60%;
+    background-color: #a78bfa;
+    animation: float 26s ease-in-out infinite;
+}
+
+
+/* ----- Ripples (circles that grow like water waves) ----- */
+
+.ripple {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+
+    width: 160px;
+    height: 160px;
+
+    /* Move it back by half its size, so its center is in the middle */
+    margin-top: -80px;
+    margin-left: -80px;
+
+    border: 2px solid white;
+    border-radius: 50%;
+    opacity: 0;
+
+    animation: ripple 9s ease-out infinite;
+}
+
+/* Each ripple starts a little later */
+.ripple-2 { animation-delay: 3s; }
+.ripple-3 { animation-delay: 6s; }
+
+
+/* ----- Animations ----- */
+
+@keyframes moveGradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(120px, 80px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes ripple {
+    0%   { transform: scale(0.5); opacity: 0.6; }
+    100% { transform: scale(7);   opacity: 0; }
+}
+
+@keyframes glow {
+    0%   { text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+    50%  { text-shadow: 0 0 40px rgba(255, 255, 255, 0.7); }
+    100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 12px 26px;
+
+    border: 2px solid var(--primary);
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Purple button */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Button with only a border */
+.btn-outline {
+    background-color: white;
+    color: var(--primary);
+}
+
+/* White button (used on the hero) */
+.btn-white {
+    background-color: white;
+    border-color: white;
+    color: var(--primary);
+}
+
+/* White border button (used on the hero) */
+.btn-outline-white {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+
+
+/* =====================================================
+   SECTIONS (white boxes)
+===================================================== */
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 16px;
+}
+
+section {
+    margin-bottom: 28px;
+    padding: 30px;
+
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+    /* Space for the sticky navbar when we jump to a section */
+    scroll-margin-top: 80px;
+}
+
+h2 {
+    margin-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 4px solid var(--primary);
+    display: inline-block;
+}
+
+
+/* =====================================================
+   CARDS (used for Skills and Community users)
+===================================================== */
+
+.card-grid {
+    /* Puts cards in columns. Fewer columns on small screens. */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: 0.2s;
+}
+
+/* Card moves up a little on hover */
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+}
+
+.card h3,
+.card h4 {
+    margin: 8px 0 4px;
+}
+
+.card p {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+.icon {
+    font-size: 34px;
+}
+
+/* Round circle with the first letter of the name */
+.avatar {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 56px;   /* same as height, so the letter is in the middle */
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Small colored label */
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.green  { background-color: #dcfce7; color: #15803d; }
+.yellow { background-color: #fef3c7; color: #b45309; }
+.blue   { background-color: #dbeafe; color: #1d4ed8; }
+.gray   { background-color: #f1f5f9; color: #475569; }
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+/* Two columns of fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+}
+
+/* Label on top, input below */
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This field takes both columns */
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+}
+
+/* Purple border when you click inside a field */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Radio buttons and checkboxes in a row */
+.options {
+    display: flex;
+    gap: 10px;
+}
+
+.option {
+    padding: 10px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.option:hover {
+    border-color: var(--primary);
+}
+
+/* Red error text under a field */
+.error {
+    min-height: 20px;
+    margin: 4px 0 10px;
+    color: var(--red);
+    font-size: 13px;
+}
+
+/* Green message after submit */
+#successMessage {
+    color: var(--green);
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   REGISTERED USERS
+===================================================== */
+
+.user-card {
+    /* "relative" so the delete button can be placed in the top-right corner */
+    position: relative;
+
+    margin-top: 14px;
+    padding: 16px 20px;
+
+    background-color: #f8fafc;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+}
+
+.user-card h4 {
+    margin: 0 0 8px;
+    padding-right: 100px;   /* leave space for the delete button */
+    color: var(--primary);
+}
+
+.user-card p {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+/* Delete button in the top-right corner of the card */
+.delete-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    padding: 6px 14px;
+
+    background-color: #fef2f2;
+    color: var(--red);
+    border: 1.5px solid #fecaca;
+    border-radius: 20px;
+
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: var(--red);
+    color: white;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background-color: #0f172a;
+}
+
+footer p {
+    margin: 4px 0;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MOBILE (screens smaller than 640px)
+===================================================== */
+
+@media (max-width: 640px) {
+
+    /* Logo on top, links below */
+    nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav-links a {
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    /* One column form */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+
+    .options {
+        flex-wrap: wrap;
+    }
+}

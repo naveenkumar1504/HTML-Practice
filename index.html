@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Naveen's Portfolio</title>
+
+    <!-- Small icon shown in the browser tab -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Our CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav>
+        <a href="#home" class="logo">Naveen.</a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#community">Community</a>
+            <a href="#register">Register</a>
+        </div>
+    </nav>
+
+
+    <!-- ========== HERO (top banner) ========== -->
+    <header id="home">
+
+        <!-- Moving background shapes (styled in CSS) -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <div class="ripple ripple-1"></div>
+        <div class="ripple ripple-2"></div>
+        <div class="ripple ripple-3"></div>
+
+        <!-- Text on top of the background -->
+        <div class="hero-content">
+            <p class="hero-tag">👋 Hello, I'm</p>
+
+            <h1>Naveen</h1>
+
+            <p class="hero-text">
+                Aspiring Full Stack Developer — learning HTML, CSS
+                and JavaScript, and preparing for React.
+            </p>
+
+            <a href="#register" class="btn btn-white">Register Now</a>
+            <a href="#skills" class="btn btn-outline-white">My Skills</a>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ========== ABOUT ========== -->
+        <section id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+                My name is <strong>Naveen</strong>. I am learning
+                <strong>Full Stack Development</strong> and building small
+                projects to practise what I learn.
+            </p>
+
+            <p>
+                Right now I am focused on <strong>HTML and CSS</strong>, and
+                I use JavaScript for form validation and loading data from an API.
+            </p>
+
+        </section>
+
+
+        <!-- ========== SKILLS ========== -->
+        <section id="skills">
+
+            <h2>My Skills</h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+                    <div class="icon">🧱</div>
+                    <h3>HTML</h3>
+                    <p>Page structure</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>Styling &amp; layout</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>Interactivity</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⚛️</div>
+                    <h3>React</h3>
+                    <p>UI components</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========== LEARNING JOURNEY TABLE ========== -->
+        <section id="journey">
+
+            <h2>My Learning Journey</h2>
+
+            <table>
+                <tr>
+                    <th>Language</th>
+                    <th>Status</th>
+                    <th>Level</th>
+                </tr>
+
+                <tr>
+                    <td>HTML</td>
+                    <td><span class="badge green">Completed</span></td>
+                    <td>Beginner</td>
+                </tr>
+
+                <tr>
+                    <td>CSS</td>
+                    <td><span class="badge yellow">Learning</span></td>
+                    <td>Beginner</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript</td>
+                    <td><span class="badge blue">Next</span></td>
+                    <td>Beginner</td>
+                </tr>
+
+                <tr>
+                    <td>React</td>
+                    <td><span class="badge gray">Future</span></td>
+                    <td>Beginner</td>
+                </tr>
+            </table>
+
+        </section>
+
+
+        <!-- ========== COMMUNITY (data from API) ========== -->
+        <section id="community">
+
+            <h2>Community Users</h2>
+
+            <p>These users are loaded from the JSONPlaceholder API (practice data).</p>
+
+            <!-- JavaScript puts the user cards inside this div -->
+            <div id="apiUsers" class="card-grid">
+                <p>Loading users...</p>
+            </div>
+
+        </section>
+
+
+        <!-- ========== REGISTRATION FORM ========== -->
+        <section id="register">
+
+            <h2>Student Registration</h2>
+
+            <!-- novalidate = let our JavaScript check the form, not the browser -->
+            <form id="registerForm" novalidate>
+
+                <div class="form-grid">
+
+                    <!-- Name -->
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                        <p id="nameError" class="error"></p>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com">
+                        <p id="emailError" class="error"></p>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Min 8 chars, A-Z, 0-9, !@#">
+                        <p id="passwordError" class="error"></p>
+                    </div>
+
+                    <!-- Date of birth -->
+                    <div class="field">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob">
+                    </div>
+
+                    <!-- City -->
+                    <div class="field">
+                        <label for="city">City</label>
+                        <select id="city">
+                            <option value="">Select City</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Delhi">Delhi</option>
+                        </select>
+                    </div>
+
+                    <!-- Gender (radio = choose only one) -->
+                    <div class="field">
+                        <label>Gender</label>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" id="male" name="gender" value="Male"> Male
+                            </label>
+                            <label class="option">
+                                <input type="radio" id="female" name="gender" value="Female"> Female
+                            </label>
+                        </div>
+                        <p id="genderError" class="error"></p>
+                    </div>
+
+                    <!-- Skills (checkbox = choose many) -->
+                    <div class="field full-width">
+                        <label>Skills</label>
+                        <div class="options">
+                            <label class="option">
+                                <input type="checkbox" class="skill" value="HTML"> HTML
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" class="skill" value="CSS"> CSS
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" class="skill" value="JavaScript"> JavaScript
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- About -->
+                    <div class="field full-width">
+                        <label for="aboutText">About Yourself</label>
+                        <textarea id="aboutText" rows="4" placeholder="Write a few lines about yourself"></textarea>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-outline">Reset</button>
+
+                <p id="successMessage"></p>
+
+            </form>
+
+            <!-- JavaScript shows the registered users here -->
+            <div id="savedUsers"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>© 2026 Naveen's Portfolio</p>
+        <p>Created while learning HTML, CSS &amp; JavaScript</p>
+    </footer>
+
+
+    <!-- bcrypt library: gives us "bcrypt" to hash the password -->
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@3.0.3/umd/index.js"></script>
+
+    <!-- Our JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
